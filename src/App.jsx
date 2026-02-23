@@ -15,6 +15,38 @@ const App = () => {
   const [filteredList, setFilteredList] = useState(PLANET_DATA);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const handleSearch = (e) => {
+    const query = e.target.value;
+
+    if (!query) {
+      setFilteredList(PLANET_DATA);
+      setSearchQuery(query);
+      return;
+    }
+
+    setSearchQuery(query);
+
+    const searchList = filteredList.filter(
+      (item) => item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1,
+    );
+
+    setFilteredList(searchList);
+  };
+
+  const onFilterChange = (e) => {
+    const selectedSize = Number(e.target.value);
+
+    if (!selectedSize) {
+      setFilteredList(PLANET_DATA);
+    }
+
+    const filterList = PLANET_DATA.filter(
+      (item) => Number(item.size) > selectedSize,
+    );
+
+    setFilteredList(filterList);
+  };
+
   return (
     <div className="container">
       <h1>Search Filter Array of Objects</h1>
@@ -26,9 +58,10 @@ const App = () => {
             name="search"
             placeholder="Search"
             value={searchQuery}
+            onChange={handleSearch}
           />
           <div>
-            <select name="size">
+            <select name="size" onChange={onFilterChange}>
               <option value="">Filter by Size</option>
               <option value="2000">Greater than 2000 km</option>
               <option value="6000">Greater than 6000 km</option>
