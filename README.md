@@ -1,4 +1,4 @@
-# Search & Filter Component
+# Search & Filter
 
 A lightweight, responsive React component designed to demonstrate efficient data filtering within an array of objects. This component allows users to search by planet name and filter by size criteria simultaneously.
 
