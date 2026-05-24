@@ -2,6 +2,10 @@
 
 A lightweight, responsive React component designed to demonstrate efficient data filtering within an array of objects. This component allows users to search by planet name and filter by size criteria simultaneously.
 
+## Live Demo
+
+**Check out the live version of this project here:** [avicious.github.io/search-filter/](https://avicious.github.io/search-filter/)
+
 ## Features
 
 - **Combined Logic:** Search and Filter act as an "AND" operation (e.g., Search for "u" + Size > 25,000km correctly returns "Uranus").
